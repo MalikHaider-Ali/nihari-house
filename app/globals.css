@@ -1,26 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Lora:ital,wght@0,400;0,500;1,400&family=Playfair+Display:wght@400;600;700&display=swap');
+
 @import "tailwindcss";
 
+/* ─────────────────────────────────────────
+   CSS VARIABLES
+───────────────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --cream: #FDF6EC;
+  --ivory: #FFFFFF;
+  --burgundy: #6B1E2E;
+  --burgundy-dark: #4A1220;
+  --saffron: #D4870A;
+  --saffron-light: #F5C842;
+  --charcoal: #1C1C1C;
+  --muted: #7A6652;
+  --border: #EDE0D0;
+  --success: #16A34A;
+  --error: #DC2626;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ─────────────────────────────────────────
+   BASE STYLES
+───────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--cream);
+  color: var(--charcoal);
+  font-family: 'Lora', serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* ─────────────────────────────────────────
+   TYPOGRAPHY
+───────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+}
+
+/* ─────────────────────────────────────────
+   HERO ANIMATIONS
+───────────────────────────────────────── */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.8s ease-out forwards;
+}
+
+/* ─────────────────────────────────────────
+   SCROLL REVEAL
+───────────────────────────────────────── */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+}
+
+.reveal-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─────────────────────────────────────────
+   GLASS CARD
+───────────────────────────────────────── */
+.glass-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+}
+
+/* ─────────────────────────────────────────
+   HIDE SCROLLBAR
+───────────────────────────────────────── */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ─────────────────────────────────────────
+   STICKY TABS
+───────────────────────────────────────── */
+.sticky-tabs {
+  position: sticky;
+  top: 64px;
+  z-index: 40;
+}
+
+/* ─────────────────────────────────────────
+   SVG DRAW ANIMATION — order confirmation
+───────────────────────────────────────── */
+@keyframes draw-circle {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes draw-tick {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.checkmark-circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: #22C55E;
+  fill: none;
+  animation: draw-circle 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark-check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: draw-tick 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+/* ─────────────────────────────────────────
+   PULSE ANIMATION — order tracker
+───────────────────────────────────────── */
+@keyframes pulse-glow {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(212, 135, 10, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(212, 135, 10, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(212, 135, 10, 0);
+  }
+}
+
+.pulse-active {
+  animation: pulse-glow 2s infinite;
+}
+
+/* ─────────────────────────────────────────
+   SELECTION COLOR
+───────────────────────────────────────── */
+::selection {
+  background-color: var(--saffron);
+  color: white;
+}
+
+/* ─────────────────────────────────────────
+   CUSTOM SCROLLBAR
+───────────────────────────────────────── */
+.overflow-y-auto::-webkit-scrollbar {
+  width: 4px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb:hover {
+  background: var(--muted);
+}
+
+/* ─────────────────────────────────────────
+   STAT NUMBERS — our story page
+───────────────────────────────────────── */
+.stat-number {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ─────────────────────────────────────────
+   HERO GRADIENT — menu page
+───────────────────────────────────────── */
+.hero-gradient {
+  background:
+    linear-gradient(
+      rgba(107, 30, 46, 0.75),
+      rgba(107, 30, 46, 0.75)
+    ),
+    url('https://images.unsplash.com/photo-1585937421612-70a0f2455f75?auto=format&fit=crop&q=80&w=2000');
+  background-size: cover;
+  background-position: center;
+}
+
+/* ─────────────────────────────────────────
+   LIGHTBOX ANIMATION
+───────────────────────────────────────── */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.lightbox-overlay {
+  animation: fade-in 0.2s ease-out;
+}
+
+/* ─────────────────────────────────────────
+   FOCUS STYLES
+───────────────────────────────────────── */
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--saffron);
+  box-shadow: 0 0 0 2px rgba(212, 135, 10, 0.2);
+}
+
+/* ─────────────────────────────────────────
+   BUTTON BASE
+───────────────────────────────────────── */
+button {
+  cursor: pointer;
+}
+
+/* ─────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────── */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }
