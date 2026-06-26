@@ -1,0 +1,275 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+<<<<<<< HEAD
+=======
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Lora:ital,wght@0,400;0,500;1,400&family=Playfair+Display:wght@400;600;700&display=swap');
+
+/* ─────────────────────────────────────────
+   CSS VARIABLES
+───────────────────────────────────────── */
+>>>>>>> 0768f49a95b25af791e42f06ffb6bfeabdb2a5f9
+:root {
+  --cream:         #FDF6EC;
+  --ivory:         #FFFFFF;
+  --burgundy:      #6B1E2E;
+  --burgundy-dark: #4A1220;
+  --saffron:       #D4870A;
+  --saffron-light: #F5C842;
+  --charcoal:      #1C1C1C;
+  --muted:         #7A6652;
+  --border:        #EDE0D0;
+  --success:       #16A34A;
+  --error:         #DC2626;
+}
+
+<<<<<<< HEAD
+html { scroll-behavior: auto; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background-color: #FDF6EC;
+  color: #1C1C1C;
+  -webkit-font-smoothing: antialiased;
+}
+button { cursor: pointer; font-family: inherit; }
+input, textarea, select { font-family: inherit; }
+::selection { background-color: #D4870A; color: #FFFFFF; }
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+=======
+/* ─────────────────────────────────────────
+   BASE
+───────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--cream);
+  color:            var(--charcoal);
+  font-family:      'Lora', serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+}
+
+/* ─────────────────────────────────────────
+   FADE UP ANIMATION — hero section
+───────────────────────────────────────── */
+@keyframes fadeUp {
+  from {
+    opacity:   0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity:   1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.8s ease-out forwards;
+}
+
+/* ─────────────────────────────────────────
+   SCROLL REVEAL — sections
+───────────────────────────────────────── */
+.reveal-on-scroll {
+  opacity:    0;
+  transform:  translateY(40px);
+  transition: all 0.8s ease-out;
+}
+
+.reveal-on-scroll.visible {
+  opacity:   1;
+  transform: translateY(0);
+}
+
+/* ─────────────────────────────────────────
+   GLASS CARD — hero floating cards
+───────────────────────────────────────── */
+.glass-card {
+  background:      rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+}
+
+/* ─────────────────────────────────────────
+   HIDE SCROLLBAR — category tabs
+───────────────────────────────────────── */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width:    none;
+}
+
+/* ─────────────────────────────────────────
+   STICKY TABS — menu page
+───────────────────────────────────────── */
+.sticky-tabs {
+  position: sticky;
+  top:      64px;
+  z-index:  40;
+}
+
+/* ─────────────────────────────────────────
+   CHECKMARK ANIMATION — order confirmation
+───────────────────────────────────────── */
+@keyframes draw-circle {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes draw-tick {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.checkmark-circle {
+  stroke-dasharray:  166;
+  stroke-dashoffset: 166;
+  stroke-width:      2;
+  stroke-miterlimit: 10;
+  stroke:            #22C55E;
+  fill:              none;
+  animation:         draw-circle 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark-check {
+  transform-origin:  50% 50%;
+  stroke-dasharray:  48;
+  stroke-dashoffset: 48;
+  animation:         draw-tick 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+/* ─────────────────────────────────────────
+   PULSE ANIMATION — order tracker
+───────────────────────────────────────── */
+@keyframes pulse-glow {
+  0% {
+    transform:  scale(0.95);
+    box-shadow: 0 0 0 0 rgba(212, 135, 10, 0.7);
+  }
+  70% {
+    transform:  scale(1);
+    box-shadow: 0 0 0 10px rgba(212, 135, 10, 0);
+  }
+  100% {
+    transform:  scale(0.95);
+    box-shadow: 0 0 0 0 rgba(212, 135, 10, 0);
+  }
+}
+
+.pulse-active {
+  animation: pulse-glow 2s infinite;
+}
+
+/* ─────────────────────────────────────────
+   LIGHTBOX — gallery page
+───────────────────────────────────────── */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.lightbox-overlay {
+  animation: fade-in 0.2s ease-out;
+}
+
+/* ─────────────────────────────────────────
+   HERO GRADIENT — menu hero
+───────────────────────────────────────── */
+.hero-gradient {
+  background:
+    linear-gradient(
+      rgba(107, 30, 46, 0.75),
+      rgba(107, 30, 46, 0.75)
+    ),
+    url('https://images.unsplash.com/photo-1585937421612-70a0f2455f75?auto=format&fit=crop&q=80&w=2000');
+  background-size:     cover;
+  background-position: center;
+}
+
+/* ─────────────────────────────────────────
+   SELECTION COLOR
+───────────────────────────────────────── */
+::selection {
+  background-color: var(--saffron);
+  color:            white;
+}
+
+/* ─────────────────────────────────────────
+   STAT NUMBERS — our story page
+───────────────────────────────────────── */
+.stat-number {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ─────────────────────────────────────────
+   FOCUS STYLES — form inputs
+───────────────────────────────────────── */
+input:focus,
+textarea:focus,
+select:focus {
+  outline:      none;
+  border-color: var(--saffron);
+  box-shadow:   0 0 0 2px rgba(212, 135, 10, 0.2);
+}
+
+/* ─────────────────────────────────────────
+   BUTTON BASE
+───────────────────────────────────────── */
+button {
+  cursor: pointer;
+}
+
+/* ─────────────────────────────────────────
+   CUSTOM SCROLLBAR — cart sidebar
+───────────────────────────────────────── */
+.overflow-y-auto::-webkit-scrollbar {
+  width: 4px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb {
+  background:    var(--border);
+  border-radius: 4px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb:hover {
+  background: var(--muted);
+}
+
+/* ─────────────────────────────────────────
+   RESPONSIVE CONTAINER
+───────────────────────────────────────── */
+@media (max-width: 768px) {
+  .container {
+    padding-left:  1rem;
+    padding-right: 1rem;
+  }
+>>>>>>> 0768f49a95b25af791e42f06ffb6bfeabdb2a5f9
+}
