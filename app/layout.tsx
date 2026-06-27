@@ -1,7 +1,7 @@
 import { Playfair_Display, Lora, DM_Sans } from 'next/font/google'
 import './globals.css'
 import SmoothScroll from '@/components/SmoothScroll'
-import Navbar from '@/components/Navbar'
+import Navbar from '@/components/layout/Navbar'
 import CartSidebar from '@/components/CartSidebar'
 import ToastContainer from '@/components/Toast'
 
@@ -31,4 +31,15 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={
+    <html lang="en" className={`${playfair.variable} ${lora.variable} ${dmSans.variable}`}>
+      <body>
+        <SmoothScroll>
+          <Navbar />
+          <CartSidebar />
+          <ToastContainer />
+          <main>{children}</main>
+        </SmoothScroll>
+      </body>
+    </html>
+  )
+}

@@ -11,6 +11,7 @@ export type CartItem = {
 }
 
 type CartStore = {
+  // — Cart Items —
   items: CartItem[]
   addItem: (item: Omit<CartItem, 'qty'>) => void
   removeItem: (id: string) => void
@@ -18,11 +19,17 @@ type CartStore = {
   clearCart: () => void
   totalItems: () => number
   subtotal: () => number
+
+  // — Sidebar State —
+  isCartOpen: boolean
+  openCart: () => void
+  closeCart: () => void
 }
 
 export const useCartStore = create<CartStore>()(
   persist(
     (set, get) => ({
+      // — Cart Items —
       items: [],
 
       addItem: (item) => {
@@ -54,14 +61,20 @@ export const useCartStore = create<CartStore>()(
 
       clearCart: () => set({ items: [] }),
 
-      totalItems: () =>
-        get().items.reduce((sum, i) => sum + i.qty, 0),
+      totalItems: () => get().items.reduce((sum, i) => sum + i.qty, 0),
 
       subtotal: () =>
         get().items.reduce((sum, i) => sum + i.price * i.qty, 0),
+
+      // — Sidebar State —
+      isCartOpen: false,
+      openCart: () => set({ isCartOpen: true }),
+      closeCart: () => set({ isCartOpen: false }),
     }),
     {
       name: 'nihari-cart',
+      // only persist cart items, not sidebar open/close state
+      partialize: (state) => ({ items: state.items }),
     }
   )
 )
