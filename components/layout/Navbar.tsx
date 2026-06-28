@@ -18,6 +18,7 @@ export default function Navbar() {
   const [mounted, setMounted]           = useState(false)
   const pathname                         = usePathname()
   const { totalItems }                   = useCartStore()
+  const { openCart } = useCartStore()
 
   // Prevent hydration mismatch
   useEffect(() => {

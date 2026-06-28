@@ -7,20 +7,20 @@ export type CartItem = {
   price: number
   priceLabel: string
   image: string
-  qty: number
+  quantity: number
 }
 
 type CartStore = {
-  // — Cart Items —
   items: CartItem[]
-  addItem: (item: Omit<CartItem, 'qty'>) => void
+  addItem: (item: Omit<CartItem, 'quantity'>) => void
   removeItem: (id: string) => void
-  updateQty: (id: string, delta: number) => void
+  updateQuantity: (id: string, quantity: number) => void
   clearCart: () => void
   totalItems: () => number
   subtotal: () => number
-
-  // — Sidebar State —
+  deliveryFee: () => number
+  total: () => number
+  isEmpty: () => boolean
   isCartOpen: boolean
   openCart: () => void
   closeCart: () => void
@@ -29,7 +29,6 @@ type CartStore = {
 export const useCartStore = create<CartStore>()(
   persist(
     (set, get) => ({
-      // — Cart Items —
       items: [],
 
       addItem: (item) => {
@@ -37,11 +36,11 @@ export const useCartStore = create<CartStore>()(
         if (existing) {
           set({
             items: get().items.map((i) =>
-              i.id === item.id ? { ...i, qty: i.qty + 1 } : i
+              i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i
             ),
           })
         } else {
-          set({ items: [...get().items, { ...item, qty: 1 }] })
+          set({ items: [...get().items, { ...item, quantity: 1 }] })
         }
       },
 
@@ -49,31 +48,38 @@ export const useCartStore = create<CartStore>()(
         set({ items: get().items.filter((i) => i.id !== id) })
       },
 
-      updateQty: (id, delta) => {
-        set({
-          items: get()
-            .items.map((i) =>
-              i.id === id ? { ...i, qty: i.qty + delta } : i
-            )
-            .filter((i) => i.qty > 0),
-        })
+      updateQuantity: (id, quantity) => {
+        if (quantity <= 0) {
+          set({ items: get().items.filter((i) => i.id !== id) })
+        } else {
+          set({
+            items: get().items.map((i) =>
+              i.id === id ? { ...i, quantity } : i
+            ),
+          })
+        }
       },
 
       clearCart: () => set({ items: [] }),
 
-      totalItems: () => get().items.reduce((sum, i) => sum + i.qty, 0),
+      totalItems: () =>
+        get().items.reduce((sum, i) => sum + i.quantity, 0),
 
       subtotal: () =>
-        get().items.reduce((sum, i) => sum + i.price * i.qty, 0),
+        get().items.reduce((sum, i) => sum + i.price * i.quantity, 0),
 
-      // — Sidebar State —
+      deliveryFee: () => (get().subtotal() >= 1500 ? 0 : 100),
+
+      total: () => get().subtotal() + get().deliveryFee(),
+
+      isEmpty: () => get().items.length === 0,
+
       isCartOpen: false,
       openCart: () => set({ isCartOpen: true }),
       closeCart: () => set({ isCartOpen: false }),
     }),
     {
       name: 'nihari-cart',
-      // only persist cart items, not sidebar open/close state
       partialize: (state) => ({ items: state.items }),
     }
   )
