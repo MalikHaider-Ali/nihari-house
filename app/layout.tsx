@@ -2,8 +2,9 @@ import { Playfair_Display, Lora, DM_Sans } from 'next/font/google'
 import './globals.css'
 import SmoothScroll from '@/components/SmoothScroll'
 import Navbar from '@/components/layout/Navbar'
-//import CartSidebar from '@/components/CartSidebar'
+import CartSidebar from '@/components/CartSidebar'
 import ToastContainer from '@/components/Toast'
+import Footer from '@/components/layout/Footer'
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -35,9 +36,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <SmoothScroll>
           <Navbar />
-          {/* <CartSidebar /> */}
+          <CartSidebar />
           <ToastContainer />
           <main>{children}</main>
+          <Footer />
         </SmoothScroll>
       </body>
     </html>
