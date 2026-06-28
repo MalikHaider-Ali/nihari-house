@@ -102,7 +102,7 @@ export default function Hero() {
                 name: 'Royal Mutton Paye',
                 label: 'Breakfast Special',
                 price: 'Rs. 1,200',
-                img: '/mutton_paye.avif',
+                img: '/mutton_paye.jpg',
               },
             ].map((item, i) => (
               <div
