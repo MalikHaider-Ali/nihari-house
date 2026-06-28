@@ -9,7 +9,7 @@ const dishes = [
     reviews: '120+',
     desc: 'Slow-cooked overnight beef shank served with fresh ginger, green chillies, and brain masala.',
     badge: 'Best Seller',
-    img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAY9ArntPNgXnlUb1A8A7Xh4YS3Dv_ybhAA31WznLadumGNpK25Ik8VGDIhpMZxtNvLRUiTpP8XAP2Ka1IYYHKMKFWYI9EwWETAGvSEl3wdqm_yoY1tuLi9SqI7KZF8NtYOZpRxjcDyUQddk_VIsPbJ7cLYaGVjWt7avjDRP2pAcgR6iiMzx0tAAJRNp6eoPKf6xukTSkqKBgbS0wA2sCYhk307LbLheD9ML-3eH9MkUVl878pXAIqtiXeveDmm9zMiCSszMGEzaOhG',
+    img: '/niahri.avif',
   },
   {
     name: 'Deghi Mutton Korma',
@@ -54,7 +54,7 @@ const dishes = [
     reviews: '300+',
     desc: 'A feast for the family featuring kebabs, boti, and malai tikka with specialized dips.',
     badge: '',
-    img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCZ18jtWhQVdO5sU9JEXsxtKjjfCrwV5GiHDfIakYKvNxz28N75ttbNUyklfxR71AQPNpAqr5MUInZPJQODX4mvDla4dhvUg0leiahluz-0gVYXM3dCmcV8TcPG-DossZHHl9kMgtyAwaiXaGsrZ4DADC4ghX3VaKKhFoakkReOPg6tlY27NAlO3bugOiUjmTLOdeWvXUBSbYzqx2hyEQLT9eWt7CVY7rskX_EoKF3TepcQyCe381LmPIwlNCgmCVBAJdTDlKKEDy_M',
+    img: '/platter.avif',
   },
 ]
 
