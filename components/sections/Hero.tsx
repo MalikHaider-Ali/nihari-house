@@ -29,7 +29,7 @@ export default function Hero() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/niahri.avif"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxO2W8EBueU7GxyPWVw8KARGc_dLhOMTpK-nGHa2wOzUokPo-deyT08yXt0U94S1NU1D49YOdhSHQhkyBp_YK3BjvtL9WXT6J24MUHCV0hoD-tjrLaC_usC8AYr68FNunAD7n4yTvdWZJdIpXK9UFLMsPXwsCypjvPT1wNphR7uZ-CHlP09zH7IYVUvJOFEn5s4Iq54A_VB5ptwr9EX2xzbEU-sK1VgXDZvahkho9dOz7iASaCmK5f2UHpOtRFDQf0KO8SQIzW9v8w"
           alt="Authentic Nihari"
           fill
           className="object-cover"
