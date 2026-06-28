@@ -29,7 +29,7 @@ export default function Hero() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxO2W8EBueU7GxyPWVw8KARGc_dLhOMTpK-nGHa2wOzUokPo-deyT08yXt0U94S1NU1D49YOdhSHQhkyBp_YK3BjvtL9WXT6J24MUHCV0hoD-tjrLaC_usC8AYr68FNunAD7n4yTvdWZJdIpXK9UFLMsPXwsCypjvPT1wNphR7uZ-CHlP09zH7IYVUvJOFEn5s4Iq54A_VB5ptwr9EX2xzbEU-sK1VgXDZvahkho9dOz7iASaCmK5f2UHpOtRFDQf0KO8SQIzW9v8w"
+          src="/niahri.avif"
           alt="Authentic Nihari"
           fill
           className="object-cover"
@@ -96,19 +96,13 @@ export default function Hero() {
                 name: 'Special Beef Nihari',
                 label: "Chef's Top Pick",
                 price: 'Rs. 850',
-                img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDZBAjRwYwkHy_KrJiLP34FjCUTlNZpTkPZUGSmYANg8laV-SnQq2EfuKiZ05Zd4Xmx2c8GWGatpgPOOOySnbGMOENCCxGIae4KHNuOAIm5AWvu1iK8WRBtYQfawd18BVIjs0GtzjFiBMiESLnBLiBKqSK8xJU_1aT8LGXWetGGO85qzfeftV3wxm6n9IrzTqGi9BLru9SiT327FqgZKf-z7Zi69h2qhoj_EeU-rdfd-ARuYzXgGhiNjcA-ClTown1Ff9bRSL9yDOwH',
+                img: '/niahri.avif',
               },
               {
                 name: 'Royal Mutton Paye',
                 label: 'Breakfast Special',
                 price: 'Rs. 1,200',
-                img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAequ8MbNI-SqEpWfhAoZ2OpJagEIaKVZsWaVJCWfxTY5i0VU647XfardDEggWqBLF0Xh3BBxojJNUORad705LyHfFqzNDLjzAdP75hZyTHfZFvwXA9_BQA--m3puCt1m7BeurmO2yGdFGq0F2B_dcsM3HfbJlkUUt_Rg10dbV48wBoD4iEHpn06MqfBgyGXMlTl3WsnwM9aaKzlMjvEwlKANK3qRQGRVu4mwmHF3wXvv_cwpLW2WOVRYMgrJu9LjjKq7pUD_dgnPee',
-              },
-              {
-                name: 'Saffron Sheermal',
-                label: 'Freshly Tandoored',
-                price: 'Rs. 150',
-                img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBHjlvTqR64udCTbrZYF1E_3dOjo0Gau_DEehMmVJiiNhfjv0ZWvkDZZqQpoCZsVLDLex9MDXjm1HN5TlxSwmvNpiJe0j00bQbbpl0aMMrxpI-WOLTSN091bff44NL3TJg3LTt-OQNOaQLepkJFayDbDuoKiGl-czMgmj3oGU54ukSrRzOhWO82HgumbBSiXRV-dPzmhEZXE7GMMgnMB3m4y64yFLkC9QM2pnIBHhcPv8QYvaemVAG6BtvnRPGHqtp8tL2w0giGSiRo',
+                img: '/mutton_paye.avif',
               },
             ].map((item, i) => (
               <div
