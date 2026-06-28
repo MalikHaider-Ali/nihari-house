@@ -3,7 +3,6 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { MENU_DATA, MENU_SECTIONS } from '@/data/menu'
 import DishCard from '@/components/DishCard'
-import WhatsAppFloat from '@/components/WhatsAppFloat'
 
 export default function MenuPage() {
   const [activeCategory, setActiveCategory] = useState('breakfast')
@@ -100,8 +99,6 @@ export default function MenuPage() {
           )
         })}
       </div>
-
-      <WhatsAppFloat />
     </div>
   )
 }
